@@ -30,21 +30,21 @@ function getUserInfo() {
 }
 // 渲染用户信息
 const renderAvatar = (user) => {
-    console.log(user);
     // 获取用户名字
-    let name = user.nickname || user.username;
+    let name = user.data.nickname || user.data.username;
     // 设置欢迎文本
     $("#welcome").html(`欢迎 ${name}`);
     // 按需渲染用户头像
     if (user.user_pic !== null) {
         // 渲染图片头像
+        console.log(111);
         $(".layui-nav-img").attr("src", user.user_pic).show();
         $(".text-avatar").hide();
     } else {
         // 渲染文本头像
         $(".layui-nav-img").hide();
         let firstName = name[0].toUpperCase();
-        $(".text-avatar").html(firstName);
+        $(".text-avatar").html(firstName).show();
     }
 };
 $("#btnLogout").click(() => {
